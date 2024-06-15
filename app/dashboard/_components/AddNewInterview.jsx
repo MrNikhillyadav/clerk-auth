@@ -19,6 +19,7 @@ import { LoaderCircle } from 'lucide-react';
 import { db } from '@/utils/db';
 import { MockInterview } from '@/utils/schema';
 import moment from 'moment/moment';
+import { useRouter } from 'next/navigation';
   
 
 function addNewInterview() {
@@ -29,6 +30,7 @@ function addNewInterview() {
    const [loading,setLoading] = useState();
    const [jsonResponse,setJsonResponse] = useState();
    const {user}=useUser()
+   const router = useRouter()
 
    const onSubmit=async(ev)=>{
         setLoading(true);
@@ -58,7 +60,10 @@ function addNewInterview() {
     
             console.log("Inserted ID:", resp)
             if(resp){
-                setOpenDialog(false)
+
+                setOpenDialog(false);
+                router.push('/dashboard/interview'+resp[0]?.mockId)
+
             }
         }
         else{

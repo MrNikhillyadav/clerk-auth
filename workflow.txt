@@ -54,6 +54,16 @@
                 return mockId everytime when inserted to database.
                     do little error handling 
 
+7. Interview landing page   
+    create dynamic route Interview/[Interviewid]/page.jsx
+        router.push('/dashboard/interview'+resp[0]?.mockId) method in addNewInterview.jsx
+            capture this mockId using params
+                get interview details
+                    useState to setInterviewData(result[0])
+
+8. install react webcam
+        
+        
 
 
 
