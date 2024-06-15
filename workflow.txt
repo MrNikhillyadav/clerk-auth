@@ -1,0 +1,61 @@
+1. Authentication using Clerk
+    Create Dashboard/layout.js & Dashboard/page.js
+        (auth)/sign-in & (auth)/sign-out
+            customize auth-forms(hyperUI.dev)
+
+2. Create '_components'folder
+    _components/Header.jsx
+
+3. Backend-setup (Drizzle ORM + PostgreSQL)
+    visit Drizzle/docs/PostgreSQL page
+        install and change version to '18.3.1' in package.json
+
+        Create 'utils' directory
+            create 'db.js'
+                visit neon.tech/Dashboard and copy db url
+                    paste in .env.local with variable :' NEXT_PUBLIC_DRIZZLE_DB_URL'
+                        create 'drizzle.config.js' and paste code from Drizzle-kit.
+
+            create 'schema.js'
+                import * as schema from './schema' in bd.js file
+                    update schema path in  'drizzle.config.js'
+                        In package.json file add:
+                                    "db:push":"npx drizzle-kit push",
+                                    "db:studio":"npx drizzle-kit studio" 
+
+4. Create addNewInterview component in '_components'
+    use shadcn UI library to make form submit & the collected data in console.
+        visit Google gemini API
+            Generate questions in Json format
+                npm install @google/generative-ai in terminal
+
+5. Create GeminiAIModel.js in utils forlder
+    paste Gemini api key in .env.local 
+        paste code from gemini chat prompt and modify
+            delete history lines and remove async function and export chat session.
+                 [1hr:22min]
+                
+6. Inside addNewInterview.jsx
+    copy gemini chat prompt
+        change keywords using useStates Ex... "+jobPosition+"
+            use InputPrompt variable for this
+                create count variable in .env.local
+                    pass InputPrompt to chatSessiom.message(), store to result
+                        replace '''json with ' '
+                            parse the result to json
+                                add loadingCircle UI while generating question using useState.
+                                    etc.
+                            
+6. Insert the response into the database.
+    select keyworkds to insert into db table.
+        install UUID package to generate unique mock ID.
+            use useUser() hook to retrieve createdBy.
+               npm i moment to retrieve createdAt. 
+                return mockId everytime when inserted to database.
+                    do little error handling 
+
+
+
+
+
+
