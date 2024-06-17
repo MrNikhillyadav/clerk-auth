@@ -21,24 +21,27 @@ function startInterview({params}) {
         const result = await db.select().from(MockInterview)
             .where(eq(MockInterview.mockId, params.interviewId));
 
-        const jsonMockResp=JSON.parse(result[0].jsonMockResp)
-        setMockInterviewQuestion(jsonMockResp);
-        console.log(jsonMockResp);
-
-        if (result[0]) {
-            setInterviewData(result[0]);
-        }
+            
+            if (result[0]) {
+                const jsonMockResp = JSON.parse(result[0].jsonMockResp);
+                setMockInterviewQuestion(jsonMockResp);
+                console.log(jsonMockResp);
+                setInterviewData(result[0]);
+      }
     }
 };
 
   return (
     <div>
-      <div className='grid grid-cols-1 md:grid-cols-2'>
-      {/* questions */}
-      <QuestionsSection  mockInterviewQuestion={mockInterviewQuestion} activeQuestionIndex={activeQuestionIndex} />
+        <div className='grid grid-cols-1 md:grid-cols-2'>
 
       
-      </div>
+          <QuestionsSection
+          setInterviewData={mockInterviewQuestion}
+            activeQuestionIndex={activeQuestionIndex}
+          />
+
+        </div>
     </div>
 
   )
