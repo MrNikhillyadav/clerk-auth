@@ -62,6 +62,16 @@
                     useState to setInterviewData(result[0])
 
 8. install react webcam
+    useState and conditionals if webCamEnable then this otherwise show this webcam icon
+        retrieve interviewData and show them in left like jobPosition,jobDescription etc.
+            start interview button to go to questions page.
+
+9. To show Interview question
+    create startInterview folder    
+        
+
+
+        
         
         
 
