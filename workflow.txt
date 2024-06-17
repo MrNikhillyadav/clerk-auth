@@ -68,7 +68,15 @@
 
 9. To show Interview question
     create startInterview folder    
-        
+        use GetInterviewDetails function and make useStates
+            create a _components folder inside startInterview folder
+                create questionsection.jsx inside it.
+                    pass the jsonMockResp to QuestionSection.jsx  as prop .
+
+10. Inside QuestionSection.jsx, map over the data and retrieve it.
+        show active question number using prop,conditional rendering etc. [2hr:12min]
+            
+
 
 
         
