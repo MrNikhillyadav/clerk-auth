@@ -4,14 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { v4 as uuidv4 } from 'uuid';
 import { useUser } from "@clerk/clerk-react";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-  } from "@/components/ui/dialog"
+import {Dialog, DialogContent,DialogDescription,DialogHeader,DialogTitle,DialogTrigger,} from "@/components/ui/dialog"
 
 import { Textarea } from '@/components/ui/textarea';
 import { chatSession } from '@/utils/GeminiAIModel';
@@ -40,7 +33,7 @@ function addNewInterview() {
         const Inputprompt="Job Position: "+jobPosition+",Job Description: "+jobDesc+",Years of Expericence: "+jobExperience+",Based on this information generate "+process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT+" good interview questions with their answers in JSON format, Question and answer should be in JSON field."
 
         const result = await chatSession.sendMessage(Inputprompt);
-        const MockJsonResp =(result.response.text()).replace('```json','').replace('```',''); //relacing ```json ``` from the response and parse it.
+        const MockJsonResp =(result.response.text()).replace('```json','').replace('```',''); //replacing ```json ``` from the response and parse it.
         console.log(JSON.parse(MockJsonResp));
         setJsonResponse(MockJsonResp);
 

@@ -22,6 +22,7 @@
                         In package.json file add:
                                     "db:push":"npx drizzle-kit push",
                                     "db:studio":"npx drizzle-kit studio" 
+                                    do npm run db:push, and changes will be applied.
 
 4. Create addNewInterview component in '_components'
     use shadcn UI library to make form submit & the collected data in console.
@@ -32,8 +33,9 @@
 5. Create GeminiAIModel.js in utils forlder
     paste Gemini api key in .env.local 
         paste code from gemini chat prompt and modify
-            delete history lines and remove async function and export chat session.
-                 [1hr:22min]
+            (in ChatPrompt mention to respond in JSON foramt if required)
+                delete history lines and remove async function and export chat session.
+                  [1hr:22min]
                 
 6. Inside addNewInterview.jsx
     copy gemini chat prompt
@@ -74,7 +76,16 @@
                     pass the jsonMockResp to QuestionSection.jsx  as prop .
 
 10. Inside QuestionSection.jsx, map over the data and retrieve it.
-        show active question number using prop,conditional rendering etc. [2hr:12min]
+        show active question number using prop, conditional rendering etc. [2hr:12min]
+            do operational chaining to retrieve questions safely.
+                design the UI .
+
+                Add a new Compontent on RHS for voice recording.
+                    create RecordAnswerSection.jsx in _components. Import it to Page.jsx as well.
+                        for audio transcribe, imort react library ,and add  "use client" in file. 
+
+
+
             
 
 
